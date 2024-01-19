@@ -4,15 +4,10 @@ namespace App\Strategies;
 
 class SecondFormattingStrategy extends AbstractFormattingStrategy
 {
-    public function format(array $data): array
+    public function format(string $property, string $value): string
     {
-        $formattedData = [];
-
-        foreach ($data as $key => $value) {
-            $propertyName = implode(' ', array_map('lcfirst', explode(' ', $key)));
-            $formattedData[] = "|$propertyName|$value|";
-        }
-
-        return $formattedData;
+        $propertyWords = explode(' ', $property);
+        $formattedProperty = '|' . implode(' ', array_map('strtolower', $propertyWords)) . '|';
+        return "$formattedProperty$value|";
     }
 }

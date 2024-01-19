@@ -4,14 +4,8 @@ namespace App\Strategies;
 
 class FirstFormattingStrategy extends AbstractFormattingStrategy
 {
-    public function format(array $data): array
+    public function format(string $property, string $value): string
     {
-        $formattedData = [];
-
-        foreach ($data as $key => $value) {
-            $formattedData[] = "$key - $value";
-        }
-
-        return $formattedData;
+        return "$property: $value";
     }
 }

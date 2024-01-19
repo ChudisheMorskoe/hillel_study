@@ -2,7 +2,7 @@
 
 namespace App\Strategies;
 
-abstract class AbstractFormattingStrategy implements FormattingStrategyInterface
+abstract class AbstractFormattingStrategy implements FormattingStrategy
 {
-    public abstract function format(array $data): array;
+    abstract public function format(string $property, string $value): string;
 }
